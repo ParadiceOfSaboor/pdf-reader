@@ -1,0 +1,83 @@
+/* styles.css */
+
+body {
+    font-family: 'Courier New', Courier, monospace; /* Coding font */
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4; /* Light mode background */
+    color: #333; /* Light mode text */
+}
+
+#container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff; /* Light mode background */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Dark mode styles */
+body.dark-theme {
+    background-color: #121212; /* Dark background for body */
+    color: #dcdcdc; /* Light gray text */
+}
+
+#container.dark-theme {
+    background-color: #2e2e2e; /* Dark background for the container */
+    color: #dcdcdc;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+}
+
+.toolbar {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.toolbar button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #0077cc; /* Default button color */
+    color: #fff;
+}
+
+.toolbar.dark-theme button {
+    background-color: #2c3e50; /* Midnight blue button in dark mode */
+    color: #dcdcdc;
+    border: 1px solid #444;
+}
+
+.toolbar.dark-theme button:hover {
+    background-color: #34495e; /* Hover state for button */
+}
+
+.novel-content {
+    text-align: justify;
+    white-space: pre-wrap;
+    background-color: #6E7071; /* Dark gray background for text */
+    color: #dcdcdc; /* Gray text */
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+/* Dark mode button active state */
+.toolbar button.dark-mode.active {
+    background-color: #34495e; /* Darker midnight blue when active */
+    color: #fff;
+}
+
+/* Progress Bar */
+#progress-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 5px;
+    background-color: #76ff03; /* Green color for progress */
+    transition: width 0.2s;
+}
