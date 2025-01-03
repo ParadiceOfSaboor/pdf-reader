@@ -1,75 +1,80 @@
-/* styles.css */
+/* Updated styles.css for modern UI with light and dark modes */
 
 body {
-    font-family: 'Courier New', Courier, monospace; /* Coding font */
+    font-family: 'Poppins', sans-serif; /* Modern font */
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4; /* Light mode background */
-    color: #333; /* Light mode text */
+    background: linear-gradient(135deg, #ff7eb3, #ff758c); /* Light mode gradient */
+    color: #333; /* Default text color */
+    overflow: hidden; /* Prevent overflow for animations */
+    transition: all 0.3s ease;
+}
+
+body.dark-theme {
+    background: linear-gradient(135deg, #2a2a2a, #121212); /* Dark mode gradient */
+    color: #dcdcdc; /* Light text for dark mode */
 }
 
 #container {
-    max-width: 800px;
-    margin: 20px auto;
+    max-width: 900px;
+    margin: 40px auto;
     padding: 20px;
-    background-color: #fff; /* Light mode background */
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.85); /* Transparent container for light mode */
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
 }
 
-/* Dark mode styles */
-body.dark-theme {
-    background-color: #121212; /* Dark background for body */
-    color: #dcdcdc; /* Light gray text */
-}
-
-#container.dark-theme {
-    background-color: #2e2e2e; /* Dark background for the container */
-    color: #dcdcdc;
-    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+body.dark-theme #container {
+    background: rgba(30, 30, 30, 0.85); /* Transparent container for dark mode */
+    box-shadow: 0 8px 16px rgba(255, 255, 255, 0.1);
 }
 
 .toolbar {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     margin-bottom: 20px;
 }
 
 .toolbar button {
     padding: 10px 20px;
-    font-size: 16px;
+    font-size: 18px;
+    font-weight: bold;
     border: none;
-    border-radius: 5px;
+    border-radius: 25px;
     cursor: pointer;
-    background-color: #0077cc; /* Default button color */
+    background: linear-gradient(135deg, #ff6e7f, #bfe9ff); /* Vibrant gradient */
     color: #fff;
+    transition: transform 0.2s, box-shadow 0.3s;
 }
 
-.toolbar.dark-theme button {
-    background-color: #2c3e50; /* Midnight blue button in dark mode */
+.toolbar button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-theme .toolbar button {
+    background: linear-gradient(135deg, #444, #555);
     color: #dcdcdc;
-    border: 1px solid #444;
-}
-
-.toolbar.dark-theme button:hover {
-    background-color: #34495e; /* Hover state for button */
+    border: 1px solid #666;
 }
 
 .novel-content {
     text-align: justify;
     white-space: pre-wrap;
-    background-color: #6E7071; /* Dark gray background for text */
-    color: #dcdcdc; /* Gray text */
-    padding: 10px;
-    border-radius: 5px;
+    padding: 20px;
+    background: rgba(110, 112, 113, 0.7); /* Semi-transparent background for content */
+    color: #2d2d2d;
+    border-radius: 10px;
     margin-top: 20px;
+    font-size: 18px;
 }
 
-/* Dark mode button active state */
-.toolbar button.dark-mode.active {
-    background-color: #34495e; /* Darker midnight blue when active */
-    color: #fff;
+body.dark-theme .novel-content {
+    background: rgba(50, 50, 50, 0.8);
+    color: #dcdcdc;
 }
 
 /* Progress Bar */
@@ -78,6 +83,53 @@ body.dark-theme {
     bottom: 0;
     left: 0;
     height: 5px;
-    background-color: #76ff03; /* Green color for progress */
+    background: linear-gradient(90deg, #76ff03, #00c853); /* Green gradient */
     transition: width 0.2s;
+}
+
+/* Decorative Background Bubbles */
+.bubble {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.6;
+    animation: float 10s infinite;
+    background: radial-gradient(circle, rgba(255,255,255,0.8), rgba(255,255,255,0));
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 0.6;
+    }
+    50% {
+        transform: translateY(-50px) scale(1.2);
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(0) scale(1);
+        opacity: 0.6;
+    }
+}
+
+/* Example Bubbles */
+body::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 1000px;
+    height: 1000px;
+    background: radial-gradient(circle, rgba(255, 206, 227, 0.5), rgba(255, 118, 150, 0));
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: pulse 8s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.2);
+    }
 }
